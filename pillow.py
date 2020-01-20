@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 from delete_noase import delete_nose
 
 
@@ -11,7 +10,6 @@ def image_data(path):
 
         if x != 1:
             p += 10
-        print(x, p)
 
         numbers.append(image[0:, 16 * x + p - 3: 16 * (x + 1) + p + 10])
         numbers[-1] = cv2.threshold(numbers[-1], 50, 255, cv2.THRESH_BINARY)[1]
@@ -20,4 +18,5 @@ def image_data(path):
         # cv2.waitKey(500)
         # key = input("enter image label:")
         # cv2.destroyAllWindows()
+        print(dots)
         yield dots
